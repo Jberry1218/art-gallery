@@ -1,0 +1,33 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Art Gallery{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'artgallery/styles.css' %}">
+        <link rel="shortcut icon" href="{% static 'artgallery/images/brush.jpeg' %}">
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-custom">
+            <a class="nav-link" href="{% url 'index' %}">
+                <img src="{% static 'artgallery/images/brush.jpeg' %}" id="navbar-icon">
+            </a>
+            <a class="nav-link" href="{% url 'index' %}"><strong>Art Gallery</strong></a>
+            {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'create' %}">Create</a>
+                <a class="nav-link" href="{% url 'gallery' username=user.username %}">Your Gallery</a>
+                <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+        
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

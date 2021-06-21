@@ -1,0 +1,62 @@
+{% extends "artgallery/layout.html" %} 
+{% load static %} 
+
+{% block body %} 
+    <div class="gallery-heading">
+      <h1>{{username}}'s posts</h1>
+    </div>
+
+    {% if ownContent == True %}
+      <div class="dropdown">
+          <button class="dropdown-button">Filter</button>
+          <div class="dropdown-content">
+            <button class="dropdown-option" id="dropdown-option-1"><a href="{% url 'gallery' username=user.username filterView='public' %}" class="filter-options">Posted</a></button>
+            <button class="dropdown-option" id="dropdown-option-2"><a href="{% url 'gallery' username=user.username filterView='private' %}" class="filter-options">In Progress</a></button>
+            <button class="dropdown-option" id="dropdown-option-3"><a href="{% url 'gallery' username=user.username filterView='title' %}" class="filter-options">Title</a></button>
+            <button class="dropdown-option" id="dropdown-option-4"><a href="{% url 'gallery' username=user.username filterView='last-edited' %}" class="filter-options">Newest</a></button>
+          </div>
+      </div>
+    {% endif %}
+
+    {% if ownContent == True %}
+      <div class="gallery-container">
+          {% for image in images %}
+          <div class="gallery-container-single" id="ImageDiv{{ image.id }}"> 
+            <h2>{{ image.title }}</h2>
+            <div class="image-container">
+              <img class="gallery-image" src="{{ image.image }}" alt="img" id="Image{{ image.id }}"></img>
+              <div class="image-likes" id="Likes{{ image.id }}"><strong>Like count: {{ image.likes }}</strong></div>
+            </div>
+            <div class="user-post-buttons" id="ImageButtons{{ image.id }}">
+              {% if image.public == True %}
+                <button class="gallery-button-unpost" value="{{ image.id }}" id="Unpost{{ image.id }}">Unpost</button>
+              {% else %}
+                <button class="gallery-button-post" value="{{ image.id }}" id="Post{{ image.id }}">Post</button>
+                <button class="gallery-button-edit" value="{{ image.id }}" id="Edit{{ image.id }}">Edit</button>
+                <button class="gallery-button-delete" value="{{ image.id }}" id="Delete{{ image.id }}">Delete</button>
+              {% endif %}
+            </div>
+        </div>
+          {% endfor %}
+      </div>
+    {% else %}
+      <div class="gallery-container">
+        {% for image in images %}
+          {% if image.public == True %}
+            <div class="gallery-container-single" id="ImageDiv{{ image.id }}"> 
+              <h2>{{ image.title }}</h2>
+              <div class="image-container">
+                <img class="gallery-image" src="{{ image.image }}" alt="img" id="Image{{ image.id }}"></img>
+                <div class="image-likes"><strong>Like count: {{ image.likes }}</strong></div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+{% endblock %} 
+
+
+{% block script %}
+    <script src="{% static 'artgallery/gallery.js' %}"></script>
+{% endblock %}

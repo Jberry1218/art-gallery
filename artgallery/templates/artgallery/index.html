@@ -1,0 +1,45 @@
+{% extends "artgallery/layout.html" %} 
+{% load static %} 
+
+{% block body %} 
+    <div class="gallery-heading">
+      <h1>Art Gallery</h1>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropdown-button">Filter</button>
+        <div class="dropdown-content">
+          <button class="dropdown-option" id="dropdown-option-1"><a href="{% url 'index' filterView='title' %}" class="filter-options">Title</a></button>
+          <button class="dropdown-option" id="dropdown-option-2"><a href="{% url 'index' filterView='user' %}" class="filter-options">User</a></button>
+          <button class="dropdown-option" id="dropdown-option-3"><a href="{% url 'index' filterView='posted' %}" class="filter-options">Newest</a></button>
+          <button class="dropdown-option" id="dropdown-option-4"><a href="{% url 'index' filterView='likes' %}" class="filter-options">Likes</a></button>
+        </div>
+    </div>
+
+    <div class="gallery-container">
+        {% for image in images %}
+        <div class="gallery-container-single" id="ImageDiv{{ image.id }}"> 
+            <h2>{{ image.title }} | <a href="{% url 'gallery' username=image.user.username%}" class="user-links">{{ image.user.username }}</a></h2>
+            <div class="image-container">
+              <img class="gallery-image" src="{{ image.image }}" alt="img" id="Image{{ image.id }}"></img>
+              <div class="image-likes" id="LikeCount{{ image.id }}"><strong>Like count: {{ image.likes }}</strong></div>
+            </div>
+            {% if loggedIn == True %}
+                <div class="user-post-buttons" id="ImageButtons{{ image.id }}">
+                    {% if image.userLike == False %}
+                        <button class="gallery-button-like" value="{{ image.id }}" id="Like{{ image.id }}">Like</button>
+                    {% else %}
+                        <button class="gallery-button-unlike" value="{{ image.id }}" id="Unlike{{ image.id }}">Unlike</button>
+                    {% endif %}
+                </div>
+            {% endif %}
+       </div>
+        {% endfor %}
+    </div>
+
+{% endblock %} 
+
+
+{% block script %}
+    <script src="{% static 'artgallery/index.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "artgallery/layout.html" %} 
+{% load static %} 
+
+{% block body %} 
+
+    <div id="paint-menu">
+        <div class="row">
+            <input type="radio" name="tool-option" id="brush" checked>
+            <label for="brush">
+                <img src="{% static 'artgallery/images/brush.jpeg' %}")>
+            </label>
+            <input type="radio" name="tool-option" id="bucket">
+            <label for="bucket">
+                <img src="{% static 'artgallery/images/bucket.png' %}")>
+            </label>
+        </div>
+        <div class="row">
+            <input type="radio" name="tool-option" id="line">
+            <label for="line">
+                <img src="{% static 'artgallery/images/line.png' %}")>
+            </label>
+            <input type="radio" name="tool-option" id="rectangle">
+            <label for="rectangle">
+                <img src="{% static 'artgallery/images/rectangle.png' %}")>
+            </label>
+        </div>
+        <div class="row">
+            <input type="radio" name="tool-option" id="circle">
+            <label for="circle">
+                <img src="{% static 'artgallery/images/circle.png' %}")>
+            </label>
+            <input type="radio" name="tool-option" id="eraser">
+            <label for="eraser">
+                <img src="{% static 'artgallery/images/eraser.png' %}")>
+            </label>
+        </div>
+        <div class="row">
+            <input type="range" name="size" id="size" min=0.1 max=10.1></input>
+        </div>
+        <div class="row">
+            <input type="color" name="color" id="color"></input>
+        </div>
+        {% if image %}
+            <div class="row">
+                <button value="{{ image.id }}" id="save">Save</button>
+            </div>
+        {% else %}
+            <div class="row">
+                <button id="save">Save</button>
+            </div>
+        {% endif %}
+    </div>
+
+    <div id="canvas-container">
+        {% if image %}
+            <div>
+                <input type="text" id="image-title" value="{{ image.title }}"></input>
+            </div>
+            <input type="hidden" id="edit-image" value="{{ image.image }}">
+        {% else %}
+            <div>
+                <input type="text" id="image-title" placeholder="Title"></input>
+            </div>
+        {% endif %}
+            <div>
+                <canvas id="canvas" width="900px" height="600px"></canvas>
+            </div>
+    </div>
+
+
+{% endblock %} 
+
+
+{% block script %}
+    <script src="{% static 'artgallery/create.js' %}"></script>
+{% endblock %}
