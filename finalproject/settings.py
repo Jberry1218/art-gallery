@@ -26,7 +26,9 @@ SECRET_KEY = '12s6)m4h572bt)eg^*qu^xd025p-qs83)0og)72@v@o)3g^!mj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jberry1218-art-gallery.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['jberry1218-art-gallery.herokuapp.com', 
+    'jberry1218-art-gallery.com',
+    '127.0.0.1']
 
 
 # Application definition
