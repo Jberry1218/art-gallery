@@ -83,22 +83,34 @@ nav a {
 
 #paint-menu {
     float: left;
-    display: inline;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: white;
-    height: 475px;
-    border-radius: 10%;
-    margin-top: 130px;
-    margin-left: 50px;
+    height: 70vh;
+    border-radius: 0%;
+    margin-left: 5vw;
     border: thick solid darkred;
+    width: 40vh;
+}
+
+@media only screen and (max-width: 850px) {
+    #paint-menu {
+        width: 80vw;
+        float: none;
+        margin: auto;
+    }
+
+    #image-title {
+        width: 80vw;
+        margin-bottom: 2vh;
+    }
 }
 
 #paint-menu > div {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    display: flex;
-    flex-wrap: wrap;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     align-items: center;
-    justify-content: center;
 }
 
 #paint-menu input[type="radio"] {
@@ -113,28 +125,35 @@ nav a {
 }
 
 #paint-menu input[type="radio"] + label img {
-    height: 50px;
-    width: 50px;
+    height: 7vh;
+    width: 7vh;
 }
 
 #paint-menu input[type="radio"]:checked + label {
-    border: 3px inset darkred;
+    border-bottom: 1vh solid darkred;
     border-radius: 20%;
 }
 
 #paint-menu input[type="range"] {
     background: darkred;
+    height: 5vh;
+    width: 10vh;
+}
+
+#paint-menu input[type="color"] {
+    height: 4vh;
+    width: 10vh;
 }
 
 #paint-menu button {
-    margin: 5px;
-    padding: 10px;
+    margin: 1vh;
+    padding: 2vh;
     font-size: 18px;
     background-color: darkred;
     color: white;
     border: none;
     text-decoration: none;
-    border-radius: 20%;
+    border-radius: 10%;
 }
 
 #paint-menu button:hover {
@@ -147,30 +166,44 @@ nav a {
 
 #image-title {
     background-color: white;
-    display: center;
     font-size: 26px;
     margin-bottom: 5px;
-    padding: 10px;
+    padding: 5px 0;
     border: thick solid darkred;
-    width: 800px;
+    width: 60vw;
 }
 
 #canvas {
     background-color: white;
     display: center;
-    border-radius: 10%;
+    border-radius: 0%;
+    width: 60vw;
+    height: 70vh;
     border: thick solid darkred;
+}
+
+@media only screen and (max-width: 850px) {
+    #image-title {
+        width: 90vw;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+
+    #canvas {
+        width: 90vw;
+        margin-bottom: 2vh;
+    }
 }
 
 /* Gallery formatting */
 
 .gallery-heading {
-    background-color: white;
-    padding: 5px 0px 5px 20px;
-    border-top: thick solid darkred;
-    border-bottom: thick solid darkred;
-    text-align: left;
+    background-color: darkred;
+    text-align: center;
     text-transform: uppercase;
+    padding: 0.25px 0;
+    font-size: 20px;
+    color: white;
 }
 
 .dropdown {
@@ -179,18 +212,15 @@ nav a {
 }
 
 .dropdown-button {
-    border-color: darkred;
-    border-style: solid;
-    border-width: 3px 0 3px 0;
-    background-color: white;
-    color: black;
+    border: 0;
+    background-color: darkred;
+    color: white;
     font-size: 20px;
     padding: 5px 15px 5px 15px;
 }
 
 .dropdown-button:hover {
     background-color: black;
-    color: white;
 }
 
 .dropdown-content {
@@ -200,18 +230,19 @@ nav a {
 
 .dropdown-option {
     border: none;
-    background-color: darkred;
-    color: white;
+    background-color: white;
+    color: darkred;
     font-size: 20px;
     padding: 5px 15px 5px 15px;
 }
 
 .dropdown-option:hover {
-    background-color: black;
+    background-color: lightgrey;
+    color: white;
 }
 
 .dropdown-option a {
-    color: white;
+    color: darkred;
     text-decoration: none;
 }
 
@@ -226,7 +257,7 @@ nav a {
 
     100% {
         visibility: visible;
-        background-color: black;
+        background-color: lightgrey;
     }
 }
 
@@ -257,6 +288,7 @@ nav a {
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     clear: left;
     text-transform: uppercase;
 }
