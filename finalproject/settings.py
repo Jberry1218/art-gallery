@@ -30,7 +30,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = '12s6)m4h572bt)eg^*qu^xd025p-qs83)0og)72@v@o)3g^!mj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['jberry1218-art-gallery.herokuapp.com', 
     'jberry1218-art-gallery.com',
