@@ -336,7 +336,11 @@ function FillPixel(pixelPos) {
 // Mousedown on canvas 
 function FunctionMouseDown(ev) {
     canvas.style.cursor = "crosshair";
-    loc = GetMousePosition(ev.clientX, ev.clientY);
+    if (ev.type == 'touchmove'){
+        loc = GetMousePosition(ev.touches[0].clientX, ev.touches[0].clientY);
+    } else if (ev.type == 'mousemove') {
+        loc = GetMousePosition(ev.clientX, ev.clientY);
+    }
     SaveCanvas();
     mouseDown.x = loc.x;
     mouseDown.y = loc.y;
@@ -360,7 +364,11 @@ function FunctionMouseDown(ev) {
 // Mousemove on canvas
 function FunctionMouseMove(ev) {
     canvas.style.cursor = "crosshair";
-    loc = GetMousePosition(ev.clientX, ev.clientY);
+    if (ev.type == 'touchmove'){
+        loc = GetMousePosition(ev.touches[0].clientX, ev.touches[0].clientY);
+    } else if (ev.type == 'mousemove') {
+        loc = GetMousePosition(ev.clientX, ev.clientY);
+    }
 
     if ((currentTool === "brush" || currentTool === "eraser") && dragging && usingBrush) {
         AddBrushPoint(loc.x, loc.y);
@@ -377,7 +385,11 @@ function FunctionMouseMove(ev) {
 // Mouseup on canvas
 function FunctionMouseUp(ev) {
     canvas.style.cursor = "default";
-    loc = GetMousePosition(ev.clientX, ev.clientY);  
+    if (ev.type == 'touchmove'){
+        loc = GetMousePosition(ev.touches[0].clientX, ev.touches[0].clientY);
+    } else if (ev.type == 'mousemove') {
+        loc = GetMousePosition(ev.clientX, ev.clientY);
+    } 
     dragging = false;
     
     if (currentTool === "brush" || currentTool === "eraser") {
