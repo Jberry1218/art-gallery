@@ -85,8 +85,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Add eventlisteners for mouse movement on canvas
     canvas.addEventListener("mousedown", FunctionMouseDown);
+    canvas.addEventListener("touchstart", FunctionMouseDown);
     canvas.addEventListener("mousemove", FunctionMouseMove);
+    canvas.addEventListener("touchmove", FunctionMouseMove);
     canvas.addEventListener("mouseup", FunctionMouseUp);
+    canvas.addEventListener("touchend", FunctionMouseUp);
 
     // Add eventlisteners for tool selection
     document.querySelector("#brush").addEventListener("click", () => ChangeTool("brush"));
