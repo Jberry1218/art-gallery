@@ -5,14 +5,14 @@
     <head>
         <title>{% block title %}Art Gallery{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'artgallery/styles.css' %}">
-        <link rel="shortcut icon" href="{% static 'artgallery/images/brush.jpeg' %}">
+        <link rel="shortcut icon" href="{% static 'artgallery/images/brush.png' %}">
         {% block script %}
         {% endblock %}
     </head>
     <body>
         <nav class="navbar navbar-custom">
             <a class="nav-link" href="{% url 'index' %}">
-                <img src="{% static 'artgallery/images/brush.jpeg' %}" id="navbar-icon">
+                <img src="{% static 'artgallery/images/brush.png' %}" id="navbar-icon">
             </a>
             <a class="nav-link" href="{% url 'index' %}"><strong>Art Gallery</strong></a>
             {% if user.is_authenticated %}

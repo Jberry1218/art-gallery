@@ -52,7 +52,7 @@ def register(request):
         try:
             user = User.objects.create_user(username, email, password)
             user.save()
-        except IntegrityError:
+        except:
             return render(request, "artgallery/register.html", {
                 "message": "Username already taken."
             })

@@ -4,14 +4,14 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
-    background-color: rgb(248, 176, 176);
+    background-color: #EEE2DC;
     margin: 0; 
     padding: 0; 
     border: 0;
 }
 
 nav {
-    background-color: darkred;
+    background-color: #E7717D;
     display: flex;             
     align-items: center;       
 }
@@ -33,7 +33,7 @@ nav a {
 #navbar-icon {
     background-color: white;
     width: 30px;
-    border-radius: 20%;
+    border-radius: 5px;
     display: inline-block;
 }
 
@@ -49,7 +49,11 @@ nav a {
 /* Login & register formatting */
 
 .login-register-div {
-    font-size: 16px;
+    margin: 20px;
+    padding: 10px 0;
+    background-color: #E3AFBC;
+    border-radius: 10px;
+    font-size: 18px;
 }
 
 .login-register-div h2 {
@@ -62,21 +66,33 @@ nav a {
     padding: 10px 10px;
     margin: 20px 0;
     font-size: 18px;
+    border-radius: 10px;
 }
 
 .login-register-div input[type="submit"] {
     margin: 5px;
     padding: 10px;
     font-size: 18px;
-    background-color: darkred;
+    background-color: #E7717D;
     color: white;
-    border: none;
+    border: thin solid darkred;
     text-decoration: none;
-    border-radius: 20%;
+    border-radius: 10px;
+    margin-bottom: 25px;
 }
 
 .login-register-div input[type="submit"]:hover {
-    background-color: black;
+    background-color: #E3AFBC;
+    color: white;
+}
+
+.auth-link {
+    text-decoration: none;
+    color: darkred;
+}
+
+.auth-link:hover {
+    color: black;
 }
 
 /* Create formatting */
@@ -86,12 +102,13 @@ nav a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: white;
+    background-color: #E3AFBC;
     height: 70vh;
-    border-radius: 0%;
+    border-radius: 10px;
     margin-left: 5vw;
     border: thick solid darkred;
     width: 40vh;
+    margin-top: 55px;
 }
 
 @media only screen and (max-width: 850px) {
@@ -130,8 +147,8 @@ nav a {
 }
 
 #paint-menu input[type="radio"]:checked + label {
-    border-bottom: 1vh solid darkred;
-    border-radius: 20%;
+    border-bottom: 1vh solid #E7717D;
+    background-color: white;
 }
 
 #paint-menu input[type="range"] {
@@ -153,7 +170,7 @@ nav a {
     color: white;
     border: none;
     text-decoration: none;
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
 #paint-menu button:hover {
@@ -171,12 +188,15 @@ nav a {
     padding: 5px 0;
     border: thick solid darkred;
     width: 60vw;
+    border-radius: 10px;
+    padding-left: 5px;
+    height: 30px;
 }
 
 #canvas {
     background-color: white;
     display: center;
-    border-radius: 0%;
+    border-radius: 10px;
     width: 60vw;
     height: 70vh;
     border: thick solid darkred;
@@ -198,7 +218,7 @@ nav a {
 /* Gallery formatting */
 
 .gallery-heading {
-    background-color: darkred;
+    margin-top: 20px;
     text-align: center;
     text-transform: uppercase;
     padding: 0.25px 0;
@@ -213,14 +233,19 @@ nav a {
 
 .dropdown-button {
     border: 0;
-    background-color: darkred;
-    color: white;
+    border: thin solid #E7717D;
+    background-color: #EEE2DC; 
+    color: #E7717D;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
     font-size: 20px;
     padding: 5px 15px 5px 15px;
 }
 
 .dropdown-button:hover {
-    background-color: black;
+    background-color: #E7717D;
+    color: white;
 }
 
 .dropdown-content {
@@ -229,16 +254,16 @@ nav a {
 }
 
 .dropdown-option {
-    border: none;
-    background-color: white;
+    border: thin solid darkred;
+    background-color: #EEE2DC;
     color: darkred;
     font-size: 20px;
     padding: 5px 15px 5px 15px;
+    border-radius: 10px;
 }
 
 .dropdown-option:hover {
-    background-color: lightgrey;
-    color: white;
+    background-color: white;
 }
 
 .dropdown-option a {
@@ -286,6 +311,9 @@ nav a {
 }
 
 .gallery-container {
+    margin: 20px;
+    background-color: #E3AFBC;
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -304,7 +332,8 @@ nav a {
 
 .image-likes {
     position: absolute;
-    background-color: rgb(248, 176, 176);
+    background-color: #E7717D;
+    color: white;
     bottom: 26px;
     width: 100px;
     height: 22px;
@@ -319,9 +348,9 @@ nav a {
     width: 390px;
     height: 260px;
     margin: 0 10px;
-    border-radius: 10%;
+    border-radius: 10px;
     border: thick solid darkred;
-    box-shadow: 8px 8px 6px darkred;
+    box-shadow: 8px 8px 6px #E7717D;
 }
 
 .user-links {
@@ -339,8 +368,8 @@ nav a {
 
 .gallery-button-unpost, .gallery-button-post, .gallery-button-edit, .gallery-button-delete, .gallery-button-like, .gallery-button-unlike {
     border: none;
-    border-radius: 10%;
-    background-color: darkred;
+    border-radius: 10px;
+    background-color: #E7717D;
     color: white;
     font-size: 16px;
     width: 75px;
@@ -349,6 +378,16 @@ nav a {
 }
 
 .gallery-button-unpost:hover, .gallery-button-post:hover, .gallery-button-edit:hover, .gallery-button-delete:hover, .gallery-button-like:hover, .gallery-button-unlike:hover {
-    background-color: black;
+    background-color: darkred;
+}
+
+.title-color {
+    background-image: linear-gradient(to left, darkred, #E7717D, #E3AFBC, #E7717D, darkred);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline;
+    font-family: Papyrus, fantasy;
 }
 
