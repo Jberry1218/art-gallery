@@ -109,8 +109,6 @@ def create(request, imageId=""):
     return render(request, "artgallery/create.html", context)
 
 
-@csrf_exempt
-@login_required
 def gallery(request, username, filterView=""):
 
     # Viewed user's id
